@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@font-face {
+    font-family: Montserrat;
+    src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: RoxboroughCF;
+    src: url('./assets/fonts/RoxboroughCF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@theme{
+    --font-montserrat: Montserrat, "sans-serif";
+    --font-roxb: RoxboroughCF, "sans-serif";
+}
