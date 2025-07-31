@@ -17,3 +17,7 @@
     --font-montserrat: Montserrat, "sans-serif";
     --font-roxb: RoxboroughCF, "sans-serif";
 }
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
