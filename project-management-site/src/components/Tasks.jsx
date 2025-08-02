@@ -1,7 +1,7 @@
 
 import {useRef} from "react";
 import Modal from "./Modal.jsx";
-export default function Tasks({tasks, onAddTask, onDeleteTask}) {
+export default function Tasks({tasks, onAddTask, onDeleteTask, onToggleTask}) {
     const enteredTaskRef = useRef();
     const modal = useRef('');
 
@@ -28,20 +28,22 @@ export default function Tasks({tasks, onAddTask, onDeleteTask}) {
                     <p className="font-montserrat text-l text-[#3E2723] border-2 border-[#3E2723] border-dashed py-2 px-3 rounded-full inline-block">This project does not have any tasks</p>
                 }
 
-                <ul>
                     {tasks.map((task) => (
-                        <li key={task.id} className={"flex justify-between my-4 "}>
-                            <span className="border-2 border-[#3E2723] border-dashed py-3 px-3 rounded-full inline-block">{task.task}</span>
-                            <button className="text-[#3E2723] text-l font-montserrat border-2 border-[#3E2723] rounded-full px-4 py-2 hover:bg-[#3E2723] hover:text-[#F4C9D6] hover:border-[#F4C9D6]" onClick={()=>{
-                                onDeleteTask(task.id);
-                            }}>Clear</button>
-                        </li>
+                        <label key={task.id} className={"flex justify-between my-4 border-2 border-[#3E2723] border-dashed py-3 px-3 rounded-full "}>
+                            <div className="" >
+                                <input className="accent-[#3E2723] rounded focus:ring-2 focus:ring-[#F4C9D6] mr-4" type="checkbox" checked={task.done} onChange={()=>onToggleTask(task.id)}/>
+                                <span className="font-montserrat">{task.task}</span>
+
+                            </div>
+                        <button className="text-[#3E2723] text-base font-montserrat px-3 py-1 " onClick={()=>{
+                                onDeleteTask(task.id)}}>Clear</button>
+                        </label>
                     ))}
-                </ul>
+
 
 
             <div className="flex items-center justify-between ">
-                <input ref={enteredTaskRef} className="w-2/3 mt-4 p-1 border-2 rounded-full border-[#3E2723] bg-stone-200 text-[#3E2723] focus:outline-none focus:border-dashed focus:border-2" type="text"/>
+                <input ref={enteredTaskRef} className="font-montserrat w-2/3 mt-4 p-1 border-2 rounded-full border-[#3E2723] bg-stone-200 text-[#3E2723] focus:outline-none focus:border-dashed focus:border-2" type="text"/>
                 <button className="text-[#3E2723] text-l font-montserrat border-2 border-[#3E2723] rounded-full px-4 py-2 hover:bg-[#3E2723] hover:text-[#F4C9D6] hover:border-[#F4C9D6]" onClick={handleClick}>Add Task</button>
             </div>
         </section>

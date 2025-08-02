@@ -75,6 +75,17 @@ export default function DashBoard() {
             }
         })
     }
+    function handleToggleTask(id){
+        setProjectsState(prevState=>{
+            const updatedTasks = prevState.tasks.map((task)=>{
+                if(task.id === id){
+                    return {...task, done: !task.done}
+                }
+                return task;
+            })
+            return {...prevState,tasks: updatedTasks}
+        })
+    }
 
     const selectedProject = projectsState.projects.find(project=> project.id === projectsState.selectedProjectId);
     let content = (
@@ -84,6 +95,7 @@ export default function DashBoard() {
             project={selectedProject}
             onAddTask={handleAddTask}
             onDeleteTask={handleDeleteTask}
+            onToggleTask={handleToggleTask}
         />
     );
     if(projectsState.selectedProjectId === null) {
