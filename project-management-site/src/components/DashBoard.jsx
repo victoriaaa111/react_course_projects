@@ -28,7 +28,7 @@ export default function DashBoard() {
 
             return {
                 ...prevState,
-                selectedProjectId: undefined,
+                selectedProjectId: newProject.id,
                 projects:[...prevState.projects, newProject]
             }
         })
@@ -66,9 +66,26 @@ export default function DashBoard() {
             }
         })
     }
+    function handleDeleteProject(){
+        setProjectsState((prevState)=>{
+            return{
+                ...prevState,
+                selectedProjectId:undefined,
+                projects: prevState.projects.filter(project=>project.id !== prevState.selectedProjectId)
+            }
+        })
+    }
 
     const selectedProject = projectsState.projects.find(project=> project.id === projectsState.selectedProjectId);
-    let content = <SelectedProject tasks={projectsState.tasks} project={selectedProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask}/>;
+    let content = (
+        <SelectedProject
+            tasks={projectsState.tasks.filter(task => task.projectId === projectsState.selectedProjectId)}
+            onDeleteProject={handleDeleteProject}
+            project={selectedProject}
+            onAddTask={handleAddTask}
+            onDeleteTask={handleDeleteTask}
+        />
+    );
     if(projectsState.selectedProjectId === null) {
         content = <NewProject onAdd={handleAddProject}/>
     }else if(projectsState.selectedProjectId === undefined) {
