@@ -8,6 +8,7 @@ export default function DashBoard() {
     const [projectsState, setProjectsState] = useState({
         selectedProjectId : undefined,
         projects: [],
+        tasks: []
     })
     function handleStartAddProject() {
         setProjectsState(prevState=>{
@@ -41,9 +42,33 @@ export default function DashBoard() {
             }
         })
     }
+    function handleAddTask(task){
+        setProjectsState(prevState=>{
+            const newTask = {
+                task:task,
+                done: false,
+                projectId: prevState.selectedProjectId,
+                id: Math.random()
+            }
+
+            return {
+                ...prevState,
+                tasks:[newTask, ...prevState.tasks]
+            }
+        })
+    }
+
+    function handleDeleteTask(selectedId){
+        setProjectsState((prevState)=>{
+            return{
+                ...prevState,
+                tasks: prevState.tasks.filter(task=>task.id !== selectedId)
+            }
+        })
+    }
 
     const selectedProject = projectsState.projects.find(project=> project.id === projectsState.selectedProjectId);
-    let content = <SelectedProject project={selectedProject}/>;
+    let content = <SelectedProject tasks={projectsState.tasks} project={selectedProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask}/>;
     if(projectsState.selectedProjectId === null) {
         content = <NewProject onAdd={handleAddProject}/>
     }else if(projectsState.selectedProjectId === undefined) {
