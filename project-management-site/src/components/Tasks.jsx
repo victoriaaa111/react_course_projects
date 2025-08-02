@@ -44,7 +44,7 @@ export default function Tasks({tasks, onAddTask, onDeleteTask, onToggleTask}) {
 
             <div className="flex items-center justify-between ">
                 <input ref={enteredTaskRef} className="font-montserrat w-2/3 mt-4 p-1 border-2 rounded-full border-[#3E2723] bg-stone-200 text-[#3E2723] focus:outline-none focus:border-dashed focus:border-2" type="text"/>
-                <button className="text-[#3E2723] text-l font-montserrat border-2 border-[#3E2723] rounded-full px-4 py-2 hover:bg-[#3E2723] hover:text-[#F4C9D6] hover:border-[#F4C9D6]" onClick={handleClick}>Add Task</button>
+                <button className="text-[#3E2723] text-l mt-4 font-montserrat border-2 border-[#3E2723] rounded-full px-4 py-2 hover:bg-[#3E2723] hover:text-[#F4C9D6] hover:border-[#F4C9D6]" onClick={handleClick}>Add Task</button>
             </div>
         </section>
             </>
