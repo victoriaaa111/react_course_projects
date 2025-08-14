@@ -1,9 +1,16 @@
+import {useCart} from "./CartContext.jsx";
+
 export default function ProductView({product, onClose}){
+    const {addToCart, toggleCart} = useCart();
+
     return (
         <div className="fixed inset-0 z-50 bg-[#352118]/40 backdrop-blur-sm flex items-center justify-center px-4">
             <div className="bg-white p-6 rounded-lg w-full max-w-4xl relative">
                 <button
-                    onClick={onClose}
+                    onClick={()=>{
+                        onClose();
+                        toggleCart();
+                    }}
                     className="absolute top-2 right-3 text-[#53608A]"
                 >
                     ✕
@@ -24,7 +31,7 @@ export default function ProductView({product, onClose}){
                             <option>L</option>
                         </select>
 
-                        <button className="bg-[#352118] text-[#d5ccc4] px-4 py-2 w-full mt-2">
+                        <button onClick={()=>addToCart(product)} className="bg-[#352118] text-[#d5ccc4] px-4 py-2 w-full mt-2">
                             Add to Bag — US${product.price}
                         </button>
                     </div>

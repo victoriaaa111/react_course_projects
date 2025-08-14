@@ -1,5 +1,6 @@
 import LandingPage from "./components/LandingPage.jsx";
 import ProductList from "./components/ProductList.jsx";
+import Cart from "./components/Cart.jsx";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <LandingPage/>
         <ProductList/>
+        <Cart/>
     </>
   )
 }
