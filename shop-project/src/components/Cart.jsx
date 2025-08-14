@@ -31,8 +31,9 @@ export default function Cart() {
             </div>
 
 
-            <div className="p-4 border-t font-josefin text-xl">
+            <div className="p-4 border-t font-josefin text-xl flex flex-col items-center">
                 <p className="text-center text-[#352118]">Your total: {total} $</p>
+                <button className="bg-[#352118] text-[#d5ccc4] px-4 py-1 mt-2">Place Order</button>
             </div>
 
         </div>
