@@ -2,7 +2,7 @@ import { useCart } from "./CartContext.jsx";
 import { useState } from "react";
 
 export default function ProductView({ product, onClose }) {
-    const { addToCart, toggleCart } = useCart();
+    const { addToCart, toggleCart, cartOpen } = useCart();
     const [selectedSize, setSelectedSize] = useState("");
 
     return (
@@ -11,7 +11,7 @@ export default function ProductView({ product, onClose }) {
                 <button
                     onClick={() => {
                         onClose();
-                        toggleCart();
+                        cartOpen && toggleCart();
                     }}
                     className="absolute top-2 right-3 text-[#53608A] text-lg sm:text-xl"
                 >
