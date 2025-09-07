@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Perry Cardigan",
+    "price": 88,
+    "image": "/src/assets/images/product1.png"
+  },
+  {
+    "id": 2,
+    "name": "Golightly Cardigan",
+    "price": 118,
+    "image": "/src/assets/images/product2.png"
+  },
+  {
+    "id": 3,
+    "name": "The Esquire Trench Coat",
+    "price": 198,
+    "image": "/src/assets/images/product3.png"
+  },
+  {
+    "id": 4,
+    "name": "Segment Dress",
+    "price": 128,
+    "image": "/src/assets/images/product4.png"
+  },
+  {
+    "id": 5,
+    "name": "Original Contour Ravish Top",
+    "price": 58,
+    "image": "/src/assets/images/product5.png"
+  },
+  {
+    "id": 6,
+    "name": "Audience Satin Mini Dress",
+    "price": 138,
+    "image": "/src/assets/images/product6.png"
+  },
+  {
+    "id": 7,
+    "name": "Standout Blazer",
+    "price": 248,
+    "image": "/src/assets/images/product7.png"
+  },
+  {
+    "id": 8,
+    "name": "Attire Vest",
+    "price": 118,
+    "image": "/src/assets/images/product8.png"
+  },
+  {
+    "id": 9,
+    "name": "Octavia Zip Hoodie",
+    "price": 128,
+    "image": "/src/assets/images/product9.png"
+  }
+]
